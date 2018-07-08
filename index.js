@@ -9,6 +9,18 @@ const PORT = process.env.PORT || '8000'
  * @apiParam (Url) {String} name the name to print
  * @apiSuccess (200) {String} message the hello {name} message
  */
+app.get('/lol/:name', (req, res) =>
+  res.send({
+    message: `Lol ${req.params.name}`
+  })
+)
+
+/**
+ * @api {get} /hello/{name} Prints "Hello {name}"
+ * @apiName HelloWorld
+ * @apiParam (Url) {String} name the name to print
+ * @apiSuccess (200) {String} message the hello {name} message
+ */
 app.get('/hello/:name', (req, res) =>
   res.send({
     message: `Hello ${req.params.name}`
