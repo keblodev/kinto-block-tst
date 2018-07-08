@@ -4,8 +4,8 @@ const PORT = process.env.PORT || '8000'
 
 
 /**
- * @api {get} /hello/{name} Prints "Hello {name}"
- * @apiName HelloWorld
+ * @api {get} /lol/{name} Prints "Lol {name}"
+ * @apiName LolWorld
  * @apiParam (Url) {String} name the name to print
  * @apiSuccess (200) {String} message the hello {name} message
  */
