@@ -1,2 +1,2 @@
 # kinto-block-tst...
-sometest lol
+sometest loltwo
