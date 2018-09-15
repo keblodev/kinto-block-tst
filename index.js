@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || '8000'
+const PORT = process.env.PORT || '5020'
 
 
 /**
@@ -21,10 +21,15 @@ app.get('/lol/:name', (req, res) =>
  * @apiParam (Url) {String} name the name to print
  * @apiSuccess (200) {String} message the hello {name} message
  */
-app.get('/hello/:name', (req, res) =>
-  res.send({
-    message: `Hello ${req.params.name}`
+app.get('/sample/:name', (req, res) => {
+  console.log("LOL!");
+  // res.set('Content-Type','application/json');
+  // res.set('Cache-Control','max-age=90');
+  return res.send({
+    message: `Hello11 ${req.params.name}`,
+    resHead: res.getHeaders()
   })
+}
 )
 
 app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))
