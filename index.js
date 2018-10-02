@@ -4,15 +4,36 @@ const PORT = process.env.PORT || '8000'
 
 
 /**
- * @api {get} /hello/{name} Prints "Hello {name}"
- * @apiName HelloWorld
- * @apiParam (Url) {String} name the name to print
- * @apiSuccess (200) {String} message the hello {name} message
+ * 
+ * @api {get} /sample/{message} hello world sample request
+ * @apiName GetSample
+ * @apiParam (Url) {String} message the message to return
+ * @apiSuccess (200) {Object} message
  */
-app.get('/hello/:name', (req, res) =>
-  res.send({
-    message: `Hello ${req.params.name}`
-  })
-)
+app.get('/sample/:message', (req, res) => {
+  
+  
+  console.log(JSON.stringify({"kinto_request_id": req.headers["kinto-request-id"], "message": "looooolll", ver: "STRINGIFY"}));
+  
+  console.log({"kinto_request_id": req.headers["kinto-request-id"], "message": "looooolll", "ver": "NOSTRINGIFY"});
+  
+  console.log(`{"kinto_request_id":"${req.headers["kinto-request-id"]}","message":"looooolll","ver":"FAKEOBJ"}`);  
+  
+//   res.writeHead(200, {'Content-Type': 'application/json'});
+  
+//   res.setHeader('Content-Type', 'application/json');
+  
+//    res.writeHead(200, {'Content-Type': 'application/json'});
+//     res.end({ohh:"kay"});
+  res.set('Content-Type','application/json');
+  res.set('Cache-Control','max-age=90');
+  return res.send({
+    data: 'Hello World ' + JSON.stringify(process.env),
+    output: [req.params.message, JSON.stringify(res.headers)].join('|'),
+    lol: 'some-stuff ' + process.env["SOME_WAK_VAR"],
+    somewak: 'waak',
+    headrsSet: res.getHeaders()
+  });
+});
 
-app.listen(PORT, () => console.log(`App listening on port ${PORT}!`))
+app.listen(PORT, () => console.log(`Example app listening on port ${PORT}!`))
