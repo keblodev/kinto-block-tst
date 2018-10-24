@@ -19,12 +19,6 @@ app.get('/sample/:message', (req, res) => {
   
   console.log(`{"kinto_request_id":"${req.headers["kinto-request-id"]}","message":"looooolll","ver":"FAKEOBJ"}`);  
   
-//   res.writeHead(200, {'Content-Type': 'application/json'});
-  
-//   res.setHeader('Content-Type', 'application/json');
-  
-//    res.writeHead(200, {'Content-Type': 'application/json'});
-//     res.end({ohh:"kay"});
   res.set('Content-Type','application/json');
   res.set('Cache-Control','max-age=90');
   return res.send({
