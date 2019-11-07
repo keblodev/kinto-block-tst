@@ -11,7 +11,7 @@ const PORT = process.env.PORT || '8000'
  */
 app.get('/lol/:name', (req, res) =>
   res.send({
-    message: `Lolssss33323123 ${req.params.name}`
+    message: `Lolsss ${req.params.name}`
   })
 )
 
