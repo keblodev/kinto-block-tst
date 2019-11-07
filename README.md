@@ -16,3 +16,4 @@ A sample node microservice block for [kintohub](http://kintohub.com)
 # Support
 
 http://www.kintohub.com
+
